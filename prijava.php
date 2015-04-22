@@ -1,3 +1,5 @@
+
+
 <?php
 require_once 'app/init.php';
 include 'deli/glava.php';
