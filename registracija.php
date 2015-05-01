@@ -12,19 +12,19 @@ include 'deli/glava.php';
 <br>
 		<div class="form-group input-group">
 			<span class="input-group-addon">@</span>
-			<input type="email" name="email" class="form-control" placeholder="Email">
+			<input type="email" name="email" class="form-control" placeholder="Email" required>
 		</div>
 		<div class="form-group input-group">
 			<span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-			<input type="password" name="geslo" class="form-control" placeholder="Geslo">
+			<input type="password" name="geslo" class="form-control" placeholder="Geslo" required>
 		</div>
 		<div class="form-group input-group">
 			<span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-			<input type="text" name="ime" class="form-control" placeholder="Ime">
+			<input type="text" name="ime" class="form-control" placeholder="Ime" required>
 		</div>
 		<div class="form-group input-group">
 			<span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-			<input type="text" name="priimek" class="form-control" placeholder="Priimek">
+			<input type="text" name="priimek" class="form-control" placeholder="Priimek" required>
 		</div>
          
          <input type="submit" class="btn btn-primary " value="Registracija">
