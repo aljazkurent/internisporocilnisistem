@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="container" style="background-color:#aaa;color:#333">
+<div class="container" style="color:#333">
 <nav class="navbar navbar-defaul">
 <h2 style="margin:0;padding:0;">Sporočilni sistem</h2>
 <a href="odjava.php" style="padding:5px;background-color:#fff;text-decoration:none;color:#333;font-weight:bold;margin-top:10px;">Odjava</a>
