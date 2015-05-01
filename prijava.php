@@ -1,5 +1,3 @@
-
-
 <?php
 require_once 'app/init.php';
 include 'deli/glava.php';
@@ -14,11 +12,11 @@ include 'deli/glava.php';
 <br>
 		<div class="form-group input-group">
 			<span class="input-group-addon">@</span>
-			<input type="email" name="email" class="form-control" placeholder="Email">
+			<input type="email" name="email" class="form-control" placeholder="Email" required>
 		</div>
 		<div class="form-group input-group">
 			<span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-			<input type="password" name="geslo" class="form-control" placeholder="Geslo">
+			<input type="password" name="geslo" class="form-control" placeholder="Geslo" required>
 		</div>        
          <input type="submit" class="btn btn-primary " value="Prijava">
         <hr>
@@ -29,8 +27,3 @@ include 'deli/glava.php';
     </div>
 </div>
 <?php
-include 'deli/noga.php';
-?>
-<?php
-include 'deli/noga.php';
-?>
