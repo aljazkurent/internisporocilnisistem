@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 07. maj 2015 ob 08.38
--- Različica strežnika: 5.5.32
--- Različica PHP: 5.4.19
+-- Čas nastanka: 06. maj 2015 ob 12.39
+-- Različica strežnika: 5.5.27
+-- Različica PHP: 5.4.7
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Zbirka podatkov: `sporocanje`
 --
-CREATE DATABASE IF NOT EXISTS `sporocanje` DEFAULT CHARACTER SET utf8 COLLATE utf8_slovenian_ci;
-USE `sporocanje`;
 
 -- --------------------------------------------------------
 
@@ -37,17 +35,7 @@ CREATE TABLE IF NOT EXISTS `odgovori` (
   `prebrano` tinyint(1) NOT NULL,
   `izbrisano` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=12 ;
-
---
--- Odloži podatke za tabelo `odgovori`
---
-
-INSERT INTO `odgovori` (`id`, `posiljatelj`, `vsebina`, `sporociloID`, `datum`, `prebrano`, `izbrisano`) VALUES
-(8, 'admin@admin.com', 'Test2', 16, '2015-04-30 20:21:57', 0, 0),
-(9, 'aljaz99@gmail.com', 'asddsa', 17, '2015-04-30 20:26:16', 0, 1),
-(10, 'admin@admin.com', 'testttt', 20, '2015-05-07 08:26:03', 0, 0),
-(11, 'admin@admin.com', 'TEST""""222', 21, '2015-05-07 08:27:34', 0, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -87,19 +75,14 @@ CREATE TABLE IF NOT EXISTS `sporocila` (
   `izbrisano` tinyint(1) NOT NULL DEFAULT '0',
   `odgovor` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=28 ;
 
 --
 -- Odloži podatke za tabelo `sporocila`
 --
 
 INSERT INTO `sporocila` (`id`, `posiljatelj`, `prejemnik`, `zadeva`, `vsebina`, `datum`, `predal`, `prebrano`, `izbrisano`, `odgovor`) VALUES
-(16, 'aljaz99@gmail.com', 'admin@admin.com', 'Test', 'Test', '2015-04-30 20:21:41', 0, 1, 0, 0),
-(17, 'admin@admin.com', 'aljaz99@gmail.com', 'asd', 'asd', '2015-04-30 20:26:01', 0, 1, 1, 0),
-(18, 'aljaz99@gmail.com', 'blaz@gmail.com', 'asdsad', 'dasd', '2015-05-07 07:36:14', 0, 0, 0, 0),
-(19, 'admin@admin.com', 'aljaz99@gmail.com', 'test324', 'testttt', '2015-05-07 07:37:11', 1, 1, 0, 0),
-(20, 'aljaz99@gmail.com', 'admin@admin.com', 'asd', 'asd', '2015-05-07 08:25:28', 0, 1, 0, 0),
-(21, 'aljaz99@gmail.com', 'admin@admin.com', 'RE: TESTT', 'TESTTT', '2015-05-07 08:27:10', 0, 1, 0, 1);
+(27, 'aljaz99@gmail.com', 'admin@admin.com', 'admin', 'adsdsa', '2015-05-06 12:37:50', 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -114,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `uporabniki` (
   `ime` varchar(30) COLLATE utf8_slovenian_ci NOT NULL,
   `priimek` varchar(30) COLLATE utf8_slovenian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=6 ;
 
 --
 -- Odloži podatke za tabelo `uporabniki`
