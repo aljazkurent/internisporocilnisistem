@@ -27,3 +27,5 @@ include 'deli/glava.php';
     </div>
 </div>
 <?php
+include 'deli/noga.php';
+?>

@@ -60,15 +60,29 @@ $predali = mysqli_fetch_all($query);
 	<div class="col-md-9">
 	<?php if(isset($_GET['sporociloID']) ): 
 	$id = $_GET['sporociloID'];
+	$_SESSION['sporociloID'] = $id;
 	$query = mysqli_query($db, "SELECT * FROM sporocila WHERE id = '$id'");
 	$result = mysqli_fetch_assoc($query);
-	$query1 = mysqli_query($db, "SELECT * FROM odgovori WHERE sporociloID = '$id'");
+	$query1 = mysqli_query($db, "SELECT * FROM odgovori WHERE sporociloID = '$id' AND izbrisano = 0");
 	$result1 = mysqli_fetch_all($query1);
 	if($result['prebrano'] == 0)
 		mysqli_query($db, "UPDATE sporocila SET prebrano = 1 WHERE id = '$id'");
 	?>
 
 	<h3><?php echo $result['zadeva']; ?></h3><a class="pull-right" style="color:#000;" href="app/izbrisi.php?id=<?php echo $id; ?>&type=sporocilo">Delete</a>
+	<form class="pull-right" action="app/spremeniPredal.php">
+		<select name="predal">
+			<option value="1">Z zvezdico</option>
+			<?php
+			foreach($predali as $el):
+				?>
+			<option value="<?php echo $el['0'];?>"><?php echo $el['1']; ?></option>
+			<?php
+			endforeach;
+			?>
+			<input type="submit" value="Spremeni predal">
+			</select>
+	</form>
 	<hr>
 	Pošiljatelj: <br><h4><?php echo $result['posiljatelj'];?></h4>
 	<p><?php echo $result['vsebina']; ?></p>
@@ -94,7 +108,7 @@ $predali = mysqli_fetch_all($query);
 		</form>
 
 	<?php elseif($_GET['predal'] == 'inbox' || !isset($_GET['predal']) && !isset($_GET['predal1'])): 
-	$query = mysqli_query($db, "SELECT * FROM sporocila WHERE prejemnik LIKE '$email' AND predal = 0 AND izbrisano  = 0 ORDER BY datum DESC");
+	$query = mysqli_query($db, "SELECT * FROM sporocila WHERE prejemnik LIKE '$email' AND predal = 0 AND izbrisano  = 0 OR odgovor = 1 ORDER BY datum DESC");
 	$prejeto = mysqli_fetch_all($query);
 	?>
 	<h3>Nabiralnik</h3>
