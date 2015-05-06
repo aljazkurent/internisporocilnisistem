@@ -8,6 +8,9 @@ if(isset($_GET['id'])) {
 		$sporocilo = $_POST['sporocilo'];
 		$posiljatelj = $data['email'];
 		mysqli_query($db, "INSERT INTO odgovori (posiljatelj, vsebina, sporociloID, datum) VALUES ('$posiljatelj', '$sporocilo', '$id', NOW())");
+		mysqli_query($db, "UPDATE sporocila SET zadeva = concat('RE: ', zadeva) WHERE id = '$id'");
+		mysqli_query($db, "UPDATE sporocila SET odgovor = 1 WHERE id = '$id'");
+		mysqli_query($db, "UPDATE sporocila SET prebrano = 0 WHERE id = '$id'");
 	}
 }
 
