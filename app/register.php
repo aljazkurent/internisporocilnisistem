@@ -8,7 +8,7 @@ function emailExists($db, $email) {
 }
 
 if(!empty($_POST)) {
-	if(empty($_POST['email']) == false && empty($_POST['geslo']) == false && empty($_POST['ime']) == false && empty($_POST['priimek'] == false)) {
+	if(empty($_POST['email']) == false && empty($_POST['geslo']) == false && empty($_POST['ime']) == false && empty($_POST['priimek']) == false) {
 		if(emailExists($db, $_POST['email']) == false) {
 			$email = htmlentities(trim($_POST['email']));
 			$geslo = htmlentities(trim($_POST['geslo']));
