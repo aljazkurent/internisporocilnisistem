@@ -108,8 +108,13 @@ $predali = mysqli_fetch_all($query);
 		</form>
 
 	<?php elseif($_GET['predal'] == 'inbox' || !isset($_GET['predal']) && !isset($_GET['predal1'])): 
-	$query = mysqli_query($db, "SELECT * FROM sporocila WHERE prejemnik LIKE '$email' AND predal = 0 AND izbrisano  = 0 OR odgovor = 1 ORDER BY datum DESC");
+	$query = mysqli_query($db, "SELECT * FROM sporocila WHERE prejemnik LIKE '$email' AND predal = 0 AND izbrisano  = 0 ORDER BY datum DESC");
+	$query1 = mysqli_query($db, "SELECT * FROM sporocila WHERE prejemnik LIKE '$email' AND odgovor = 1 ORDER BY datum DESC");
 	$prejeto = mysqli_fetch_all($query);
+	$prejeto1 = mysqli_fetch_all($query1);
+
+	$prejeto0 = array_merge($prejeto, $prejeto1);
+
 	?>
 	<h3>Nabiralnik</h3>
 		<table class="table table-hover">
@@ -120,7 +125,7 @@ $predali = mysqli_fetch_all($query);
 			<th>Prejeto</th>
 			<th>Prebrano</th>
 		</tr>
-		<?php foreach($prejeto as $el):?>
+		<?php foreach($prejeto0 as $el):?>
 		<tr>
 			<td><a href="?sporociloID=<?php echo $el['0']; ?>"></a><?php echo $el['1']; ?></td>
 			<td><?php echo $el['3']; ?></td>
